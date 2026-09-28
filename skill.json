@@ -1,15 +1,9 @@
 {
+  "schema_version": "v1",
   "name": "genpark-dynamic-range-compressor-limiter-skill",
   "version": "1.0.0",
-  "description": "Audio dynamic range compressor and peak limiter with logarithmic decibel thresholding, ratio attenuation, and linear makeup gain.",
-  "tags": [
-    "genpark-skill",
-    "agentic-ai",
-    "audio-compressor",
-    "limiter",
-    "audio-mastering",
-    "dynamics-processing"
-  ],
+  "description": "Dynamic range compressor and peak limiter with soft-knee smoothing and ballistics level detection.",
   "entrypoint": "client.py",
-  "dependencies": []
+  "mcp_server": "mcp_server.py",
+  "category": "Service"
 }
