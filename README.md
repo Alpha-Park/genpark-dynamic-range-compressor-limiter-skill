@@ -1,26 +1,59 @@
 # genpark-dynamic-range-compressor-limiter-skill
 
-[![GitHub Stars](https://img.shields.io/github/stars/Alpha-Park/genpark-dynamic-range-compressor-limiter-skill?style=social)](https://github.com/Alpha-Park/genpark-dynamic-range-compressor-limiter-skill)
-[![Standard Library Only](https://img.shields.io/badge/dependencies-0%20pip-brightgreen.svg)](https://github.com/Alpha-Park/genpark-dynamic-range-compressor-limiter-skill)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
+> Dynamic range compressor and peak limiter with soft-knee smoothing and ballistics level detection.
 
-Audio dynamic range compressor and peak limiter with logarithmic decibel thresholding, ratio attenuation, and linear makeup gain.
+Part of the **GenPark AI Agent Skills Matrix**. Production-ready, zero external dependencies, native Python 3.9+ standard library.
+
+## Architecture
 
 ```mermaid
-graph TD
-    A[Agent Runtime / Execution Stack] --> B[genpark-dynamic-range-compressor-limiter-skill]
-    B --> C[Zero Dependency Engine]
-    C --> D[Standard Library Primitives]
+flowchart TD
+    A[Audio Input Signal] --> B[Processing Engine]
+    B --> C[DSP Core Operations]
+    C --> D[Feature / Filtered Result]
+    D --> E[MCP Protocol Endpoint]
 ```
 
 ## Features
-- **Strict 0 Pip Dependencies**: Built completely using the Python Standard Library.
-- **Fast Execution & Verification**: Includes client wrapper, MCP server, and verified test suites.
-- **Agentic AI Ready**: Exposes standard MCP tools for continuous LLM integration.
+- **Zero Third-Party Dependencies**: Pure Python standard library (`math`, `cmath`).
+- **High Precision DSP**: Optimized algorithms with sub-sample interpolation and direct form structures.
+- **Native MCP Protocol Support**: Integrated JSON-RPC 2.0 stdio server ready for Claude Desktop, Cursor, and Windsurf.
 
-## Installation & Quickstart
+## Installation
+
 ```bash
-git clone https://github.com/Alpha-Park/genpark-dynamic-range-compressor-limiter-skill.git
+pip install genpark-dynamic-range-compressor-limiter-skill
+```
+
+Or clone directly:
+
+```bash
+git clone https://github.com/alphaparkinc/genpark-dynamic-range-compressor-limiter-skill.git
 cd genpark-dynamic-range-compressor-limiter-skill
 python example_usage.py
 ```
+
+## Quick Start
+
+```python
+from client import *
+# Refer to example_usage.py for end-to-end execution
+```
+
+## Model Context Protocol (MCP) Setup
+
+Add to your `claude_desktop_config.json` or `cursor.json`:
+
+```json
+{
+  "mcpServers": {
+    "genpark-dynamic-range-compressor-limiter-skill": {
+      "command": "python",
+      "args": ["-m", "genpark-dynamic-range-compressor-limiter-skill.mcp_server"]
+    }
+  }
+}
+```
+
+## License
+MIT License. Copyright (c) 2026 AlphaPark Inc. & Alpha-Park.
