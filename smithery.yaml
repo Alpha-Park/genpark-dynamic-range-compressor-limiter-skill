@@ -1,0 +1,6 @@
+# Smithery configuration for genpark-dynamic-range-compressor-limiter-skill
+name: genpark-dynamic-range-compressor-limiter-skill
+version: 1.0.0
+runtime: python
+entrypoint: mcp_server.py
+type: stdio
